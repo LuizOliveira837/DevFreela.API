@@ -34,6 +34,7 @@ namespace DevFreela.Infrastructure.Persistence.Repositories.Implementation
         public async Task<int> CreateAsync(User user)
         {
             await _context.Users.AddAsync(user);
+            await _context.SaveChangesAsync();
 
             return user.Id;
         }
@@ -58,7 +59,15 @@ namespace DevFreela.Infrastructure.Persistence.Repositories.Implementation
 
         }
 
+        public async Task<User> GetUserByEmailAndPasswordAsync(string email, string password)
+        {
+            var user = await _context
+                .Users
+                .Where(u => u.Email == email && u.Password == password)
+                .SingleAsync();
 
-
+            return user;
+                
+        }
     }
 }

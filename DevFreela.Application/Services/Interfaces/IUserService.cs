@@ -12,7 +12,7 @@ namespace DevFreela.Application.Services.Interfaces
     {
         public IList<UserViewModel> GetAll();
         //public UserViewModel GetById(int Id);
-        public void Create(NewUserInputModel input);
+        //public void Create(NewUserInputModel input);
        // public void Update(UpdateUserInputModel updateUserInputModel);
         //public void Disable(int id);
 

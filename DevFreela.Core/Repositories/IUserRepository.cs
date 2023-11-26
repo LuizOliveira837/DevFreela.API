@@ -15,6 +15,7 @@ namespace DevFreela.Core.Repositories
         public Task<int> CreateAsync(User user);
         public Task UpdateAsync(UpdateUserDTO user);
         public Task DisableAsync(int id);
-        
+
+        public Task<User> GetUserByEmailAndPasswordAsync(string email, string password);
     }
 }
