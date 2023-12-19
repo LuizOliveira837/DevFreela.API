@@ -61,7 +61,7 @@ namespace DevFreela.Infrastructure.Services
 
             var keySymmetric = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
             var signature = new SigningCredentials(keySymmetric, SecurityAlgorithms.HmacSha256);
-            var timeExpires = new DateTime().AddHours(Convert.ToDouble(_configuration["JwtToken:expires"]));
+            var timeExpires = DateTime.Now.AddHours(Convert.ToDouble(_configuration["JwtToken:expires"]));
             var token = new JwtSecurityToken(issuer: issuer, 
                 audience: audience, 
                 claims: claims, 

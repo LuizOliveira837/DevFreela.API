@@ -30,7 +30,6 @@ namespace DevFreela.Application.Commands.LoginUser
 
             var user = await _repository.GetUserByEmailAndPasswordAsync(request.Email, passwordEncripty);
 
-            if (user == null) throw new Exception("Usuario não encontrado");
 
             return new LoginUserViewModel(user.Email, _authService.GenerationJwtToken(user.Email, "1"));
 
