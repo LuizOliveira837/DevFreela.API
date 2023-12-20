@@ -51,7 +51,7 @@ namespace DevFreela.Infrastructure.Persistence.Repositories.Implementation
 
         public async Task DisableAsync(int id)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
+            var user = await GetByIdAsync(id);
 
             user.Disable();
 
